@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bài tập</title>
+</head>
+<body>
+
+	<select id="select1" onchange="selectByClass()">
+		<option>select 1</option>
+	</select>
+	<select id="select2">
+		<option>select 2</option>
+	</select>
+
+	<script type="text/javascript">
+		var select1 = document.getElementById('select1');
+		var select2 = document.getElementById('select2');
+		var students = [
+					{id: 1, name: 'tran van a', className: '.net'},
+					{id: 2, name: 'tran van b', className: '.net'},
+					{id: 3, name: 'tran van c', className: 'angular'},
+					{id: 4, name: 'tran van d', className: 'angular'},
+					{id: 5, name: 'tran van e', className: 'java'},
+					{id: 6, name: 'tran van f', className: 'java'},
+					{id: 7, name: 'tran van g', className: 'java'},
+					{id: 8, name: 'tran van h', className: 'test'},
+					{id: 9, name: 'tran van i', className: 'test'},
+					{id: 10, name: 'tran van j', className: 'test'}];
+		var listClassName = [];
+
+		students.map(res => {
+			if(this.listClassName.findIndex(el => el == res.className) == -1 ) {
+				this.listClassName.push(res.className);
+				this.select1.innerHTML += `<option value="${res.className}">${res.className}</option>`;
+			}
+		});
+
+		function selectByClass() {
+			this.select2.innerHTML = '<option>select 2</option>';
+			students.map(res => {
+				if(res.className == this.select1.value) {
+					this.select2.innerHTML += `<option value="${res.name}">${res.name}</option>`;
+				}
+			});
+		}
+	</script>
+</body>
+</html>
